@@ -121,3 +121,75 @@ npm run dev
 ✅ Ownerhsip transfer
 
 ⏳ Token system 
+
+
+### 🚀 Deployment and Local Setup (ICP)
+✅ Prerequisites
+Before you begin, ensure you have:
+
+Node.js (v16+)
+
+DFX SDK (latest)
+
+Vite (optional for frontend)
+
+Internet access (unless running a fully local dev setup)
+
+#### 🔧 Local Development Setup
+Clone the repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+Start the local replica and deploy canisters:
+
+bash
+Copy
+Edit
+dfx start --background
+dfx deploy
+Start the frontend (if using React + Vite):
+
+bash
+Copy
+Edit
+cd src/frontend
+npm install
+npm run dev
+The backend canister will be running locally.
+
+The frontend will be available at http://localhost:5173 (or Vite’s default port).
+
+The canister frontend URL (default): http://localhost:4943/?canisterId=<your_frontend_canister_id>
+
+### 🌐 Deployment to ICP Mainnet
+Authenticate with Internet Identity (optional for mainnet):
+
+bash
+Copy
+Edit
+dfx identity new <your-identity-name> # optional
+dfx identity use <your-identity-name>
+Deploy to the Internet Computer:
+
+bash
+Copy
+Edit
+dfx deploy --network ic
+Access your canister:
+
+bash
+Copy
+Edit
+https://<your_frontend_canister_id>.icp0.io
+You can find your deployed canister IDs in .dfx/ic/canister_ids.json.
+
+### 🛠 Useful Commands
+Command	Description
+dfx start --background	Start local replica
+dfx deploy	Deploy to local replica
+dfx deploy --network ic	Deploy to mainnet
+dfx canister call backend getStatus	Call backend method
+dfx generate	Generate frontend canister bindings
