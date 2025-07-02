@@ -123,7 +123,7 @@ npm run dev
 ⏳ Token system 
 
 
-### Local Setup instructions here 
+### Local Setup instructions here ⬇️
 <h1>https://icp-setup.daftpage.com/</h1>
 
 ### 🚀 Deployment and Local Setup (ICP)
