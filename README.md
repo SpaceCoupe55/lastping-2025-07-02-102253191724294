@@ -123,8 +123,12 @@ npm run dev
 ⏳ Token system 
 
 
+### Local Setup instructions here 
+<h1>https://icp-setup.daftpage.com/</h1>
+
 ### 🚀 Deployment and Local Setup (ICP)
 ✅ Prerequisites
+
 Before you begin, ensure you have:
 
 Node.js (v16+)
