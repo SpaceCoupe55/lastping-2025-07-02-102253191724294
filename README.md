@@ -1,27 +1,123 @@
-# Who am I?
+# 🔔 LastPing - A Dead Man's Switch on the Internet Computer
 
-Who am I? demonstrates how entities on the Internet Computer are identified. Every entity, such as a user or canister smart contract, has a principal identifier. Principals can be used for identification and authentication. Who am I? uses Internet Identity (II) for user authentication, then displays the principal identifier associated with that Internet Identity on the user interface.
+**LastPing** is a decentralized "dead man's switch" built on the Internet Computer (ICP), allowing users to maintain ownership of their accounts through periodic check-ins (pings). If a user fails to ping within a specified timeout period, a designated backup wallet can claim ownership of their account. The system is designed to be secure, extensible, and user-friendly — with token-based incentives and a clean, responsive frontend.
 
-## Deploying from ICP Ninja
+---
 
-When viewing this project in ICP Ninja, you can deploy it directly to the mainnet for free by clicking "Deploy" in the upper right corner. Open this project in ICP Ninja:
+## 🚀 Features
 
-[![](https://icp.ninja/assets/open.svg)](https://icp.ninja/i?g=https://github.com/dfinity/examples/motoko/who_am_i)
+### ✅ Core Smart Contract Logic (Motoko)
+- **initializeUser** - Registers a new LastPing account for a user.
+- **setBackup** - Assigns a backup Principal (wallet).
+- **setTimeout** - Sets custom timeout duration (default: 30 days).
+- **ping** - Resets the timeout timer.
+- **claim** - Backup wallet claims ownership after timeout expiration.
+- **getMyStatus / getUserStatus** - Check status of current or any user.
+- **userExists / getAllUsers** - Utility endpoints to inspect contract state.
 
-## Build and deploy from the command-line
+### 🔒 Security & Persistence
+- Principal-based authentication.
+- Persistent state across upgrades using `preupgrade`/`postupgrade`.
+- Clean Result-type error handling for all operations.
 
-### 1. [Download and install the IC SDK.](https://internetcomputer.org/docs/building-apps/getting-started/install)
+---
 
-### 2. Download your project from ICP Ninja using the 'Download files' button on the upper left corner, or [clone the GitHub examples repository.](https://github.com/dfinity/examples/)
+## 🎨 Frontend (React + Tailwind CSS)
 
-### 3. Navigate into the project's directory.
+### User-Focused Features
+- **Authentication** via Internet Identity.
+- **Responsive UI** with gradient styling and mobile support.
+- **Smart Status Display**: Role-aware (owner/backup) interactions.
+- **Clipboard Copying** for Principals and error-resistant forms.
+- **Visual Feedback**: Loading states, errors, success messaging.
 
-### 4. Deploy the project to your local environment:
+### Core Frontend Functionality
+- Create/Initialize account
+- Set or update backup wallet
+- Adjust timeout period
+- Perform periodic pings
+- Claim accounts (as backup)
+- View real-time account status
 
-```
-dfx start --background --clean && dfx deploy
-```
+---
 
-## Security considerations and best practices
+## 💰 Token System (Coming Soon)
 
-If you base your application on this example, it is recommended that you familiarize yourself with and adhere to the [security best practices](https://internetcomputer.org/docs/building-apps/security/overview) for developing on ICP. This example may not implement all the best practices.
+A utility token system ("**LPT** - LastPing Token") is planned to integrate with LastPing's core logic. Features will include:
+
+### 🔐 Backend Architecture
+- **Token Ledger**: `Principal → Balance` mapping
+- **Token Metadata**: name, symbol, total supply, decimals
+- **Token Functions**:
+  - `getTokenBalance(principal)`
+  - `getMyTokenBalance()`
+  - `transferTokens(to, amount)`
+  - `mintTokens(to, amount)` *(admin only)*
+  - `getAllTokenHolders()` *(for debugging)*
+
+### 💡 Use Cases
+- **Ping Rewards**: Earn tokens by staying active
+- **Claim Incentives**: Backup wallets receive tokens on successful claims
+- **Service Fees**: Deduct tokens for premium features (e.g., custom timeouts)
+- **Staking Model**: Users stake tokens that are forfeited if timeout expires
+
+---
+
+## 🛠 Tech Stack
+
+| Layer        | Technology                    |
+| ------------ | ----------------------------- |
+| Blockchain   | Internet Computer Protocol     |
+| Language     | Motoko                         |
+| Frontend     | React, Tailwind CSS            |
+| Auth         | Internet Identity              |
+| State Mgmt   | React Context API              |
+
+---
+
+## 🧪 Running Locally
+
+### Prerequisites:
+- [DFX SDK](https://smartcontracts.org/docs/quickstart/quickstart.html)
+- Node.js (v18+)
+- Internet Identity setup
+
+### Clone & Start:
+
+### bash
+git clone https://github.com/your-username/lastping.git
+cd lastping
+dfx start --background
+npm install
+dfx deploy
+npm run dev
+
+
+### Images 
+<h2>ICP NINJA Terminal</h2>
+<img width="635" alt="ICP ninja terminal" src="https://github.com/user-attachments/assets/93a8a5e3-d005-440f-b97d-adbcb15d6111" />
+
+<h2>Front End</h2>
+<img width="627" alt="Login Page" src="https://github.com/user-attachments/assets/740b46f8-c801-4f3e-bb19-204f2ec07205" />
+
+<h2>ICP Auth</h2>
+<img width="915" alt="Screenshot 2025-07-02 at 10 34 01 AM" src="https://github.com/user-attachments/assets/522b70d9-b0c3-40bb-9f1b-b6666f44cb5f" />
+
+<h2>After Login</h2>
+<img width="839" alt="Screenshot 2025-07-02 at 10 34 21 AM" src="https://github.com/user-attachments/assets/bce0cd11-7259-4be1-8425-8881d70deed8" />
+
+<h2>HomePage</h2>
+![7z2qz-sqaaa-aaaab-aaeha-cai icp1 io_](https://github.com/user-attachments/assets/bf7d243f-d25b-428c-8ef5-7e3068cef1a7)
+
+
+
+### Roadmap
+✅ Basic LastPing system
+
+✅ Internet Identity integration
+
+✅ UI + UX enhancements
+
+✅ Ownerhsip transfer
+
+⏳ Token system 
