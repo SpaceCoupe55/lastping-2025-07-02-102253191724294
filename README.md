@@ -107,7 +107,7 @@ npm run dev
 <img width="839" alt="Screenshot 2025-07-02 at 10 34 21 AM" src="https://github.com/user-attachments/assets/bce0cd11-7259-4be1-8425-8881d70deed8" />
 
 <h2>HomePage</h2>
-![7z2qz-sqaaa-aaaab-aaeha-cai icp1 io_](https://github.com/user-attachments/assets/bf7d243f-d25b-428c-8ef5-7e3068cef1a7)
+<b>Link to Canister homepage 👉 </b> : (https://github.com/user-attachments/assets/bf7d243f-d25b-428c-8ef5-7e3068cef1a7)
 
 
 
