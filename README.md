@@ -40,6 +40,11 @@
 - View real-time account status
 
 ---
+### Final Frontend
+<img width ="635" alt="Final Frontend" src= https://github.com/user-attachments/assets/0212199d-e4de-44b4-ba40-5703c3e55f61 />
+
+
+
 
 ## 💰 Token System (Coming Soon)
 
